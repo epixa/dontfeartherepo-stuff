@@ -25,7 +25,6 @@ define([
             commits.fetchByRepo(vendor, repo, {
                 success: function() {
                     var view = new RepoView(commits);
-                    view.initialize(vendor, repo);
                 }
             });
         }

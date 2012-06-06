@@ -8,8 +8,8 @@ define([
             if (_.isUndefined(commits)) {
                 throw new Error('Vendor and Repo must be defined.');
             }
+            console.log('-------committer--------');
             commits.forEach(function(obj){
-                console.log('-------committer--------')
                 console.log(obj.attributes);
             });
         },

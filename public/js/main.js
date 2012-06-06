@@ -1,5 +1,4 @@
-requirejs.config({
-    baseUrl:'../',
+require.config({
     paths: {
         jquery: 'libraries/jquery',
         underscore: 'libraries/underscore',

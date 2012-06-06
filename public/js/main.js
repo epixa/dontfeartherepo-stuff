@@ -10,6 +10,6 @@ define(['jquery', 'backbone', 'router'], function($, Backbone, Router){
     // jquery is being loaded as an AMD module, so it was not available when backbone was first loaded
     Backbone.setDomLibrary($);
 
-    var router = new Router();
-    router.initialize();
+    new Router();
+    Backbone.history.start({pushState: true});
 });

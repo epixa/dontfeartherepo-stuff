@@ -1,13 +1,10 @@
 define([
     'backbone',
     'views/home',
-    'views/repo'
-], function(Backbone, HomeView, RepoView){
+    'views/repo',
+    'collections/commit'
+], function(Backbone, HomeView, RepoView, Commits){
     return Backbone.Router.extend({
-        initialize: function(){
-            Backbone.history.start({pushState: true});
-        },
-
         routes: {
             '':              'home',
             ':vendor':       'vendor',
@@ -19,13 +16,18 @@ define([
             view.render();
         },
 
-        vendor: function(){
+        vendor: function(vendor){
             // todo: implement this
         },
 
         repo: function(vendor, repo) {
-            var view = new RepoView();
-            view.initialize(vendor, repo);
+            var commits = new Commits();
+            commits.fetchByRepo(vendor, repo, {
+                success: function() {
+                    var view = new RepoView(commits);
+                    view.initialize(vendor, repo);
+                }
+            });
         }
     });
 });

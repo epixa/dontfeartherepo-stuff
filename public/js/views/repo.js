@@ -1,21 +1,30 @@
 define([
-    'backbone',
+    'jquery',
     'underscore',
+    'backbone',
     '../collections/commit'
-], function(Backbone, _, Commits){
+], function($, _, Backbone, Commits){
     return Backbone.View.extend({
         initialize: function(commits) {
             if (_.isUndefined(commits)) {
                 throw new Error('Vendor and Repo must be defined.');
             }
-            console.log('-------committer--------');
+            console.log('-------committers--------');
+
+            var allCommits = commits;
             commits.forEach(function(obj){
                 console.log(obj.attributes);
             });
         },
 
+        el: $("body"),
+
+        tagName: "li",
+
+        className: "user",
+
         render: function(){
-            $("body").html('All your base.');
+            
         }
     });
 });

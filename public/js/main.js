@@ -2,7 +2,8 @@ require.config({
     paths: {
         jquery: 'libraries/jquery/jquery',
         underscore: 'libraries/underscore/underscore.amd',
-        backbone: 'libraries/backbone/backbone.amd'
+        backbone: 'libraries/backbone/backbone.amd',
+        templates: '../templates'
     }
 });
 

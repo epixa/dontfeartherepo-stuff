@@ -18,5 +18,11 @@ button {
     font-size: 20px;
     border-radius: 4px;
     background: #D5D9DE;
-    border: 1px solid #ddd;
+    border: 1px solid #D5D9DE;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #e2e7ed;
+    border: 1px solid #e2e7ed;
 }

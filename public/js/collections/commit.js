@@ -20,15 +20,26 @@ define([
         },
         parse: function(data) {
             //console.log(data);
-            var emails = {};
+            var userNames = {};
             var users = [];
             _.each(data, function(data){
-                if (!_.has(emails, data.commit.author.email)) {
+                var userName = "";
+                if (!_.isNull(data.author)) {
+                    userName = data.author.login;
+                } else {
+                    userName = data.commit.author.email;
+                }
+
+                if (!_.has(userNames, userName)) {
                     var user = {};
                     if (!_.isNull(data.author)) {
                         user.login = data.author.login;
                         user.github = data.author.url;
                         user.avatar = data.author.avatar_url;
+                    } else {
+                        user.login = data.commit.author.email;
+                        user.github = null;
+                        user.avatar = null;
                     }
                     user.email = data.commit.author.email;
                     user.name = data.commit.author.name;
@@ -36,10 +47,10 @@ define([
                     user.messages.push(data.commit.message);
                     user.commits = 1;
                     users.push(user);
-                    emails[data.commit.author.email] = users.length - 1;
+                    userNames[user.login] = users.length - 1;
                 } else {
-                    users[emails[data.commit.author.email]].commits++;
-                    users[emails[data.commit.author.email]].messages.push(data.commit.message);
+                    users[userNames[userName]].commits++;
+                    users[userNames[userName]].messages.push(data.commit.message);
                 }
             });
             return users;

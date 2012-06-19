@@ -12,7 +12,7 @@ define([
         className: "find-repo",
 
         events: {
-            "click #find-button":"submitSearch" // not firing correctly
+            "click #find-button":"submitSearch"
         },
 
         render: function(){

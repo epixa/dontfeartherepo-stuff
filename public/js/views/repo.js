@@ -21,6 +21,10 @@ define([
 
         className: "repo",
 
+        events: {
+            "click #back":"goHome"
+        },
+
         render: function(){
             var data = {
                 commits: this.commits,
@@ -32,6 +36,10 @@ define([
             /*this.commits.forEach(function(obj){
                 console.log(obj.attributes);
             });*/
+        },
+
+        goHome: function(event) {
+            Backbone.history.navigate("/", {trigger: true});
         }
     });
 });

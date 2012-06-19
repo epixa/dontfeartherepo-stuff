@@ -24,7 +24,7 @@ define([
         className: "user",
 
         render: function(){
-            
+
         }
     });
 });

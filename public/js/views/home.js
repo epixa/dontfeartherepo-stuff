@@ -20,7 +20,7 @@ define([
                 model: new repoModel(),
                 _: _
             };
-            console.log(this.el);
+            console.log(this.el); // show body
             var compiledTemplate = _.template(mainTemplate, data);
             $("body").html(compiledTemplate);
         },

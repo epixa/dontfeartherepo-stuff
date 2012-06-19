@@ -24,7 +24,8 @@ define([
             var commits = new Commits();
             commits.fetchByRepo(vendor, repo, {
                 success: function() {
-                    var view = new RepoView(commits);
+                    var repoData = new RepoView(commits);
+                    repoData.render();
                 }
             });
         }

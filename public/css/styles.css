@@ -4,6 +4,10 @@ body {
     font-family: "Lucida Sans Unicode", "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
 }
 
+li {
+    list-style-type: none;
+}
+
 input[type='text'] {
     height: 22px;
     padding: 8px;

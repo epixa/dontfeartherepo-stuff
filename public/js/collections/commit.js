@@ -19,11 +19,10 @@ define([
             this.fetch(options);
         },
         parse: function(data) {
-            //console.log(data);
             var userNames = {};
             var users = [];
             _.each(data, function(data){
-                var userName = "";
+                var userName;
                 if (!_.isNull(data.author)) {
                     userName = data.author.login;
                 } else {

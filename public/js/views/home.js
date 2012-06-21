@@ -4,7 +4,7 @@ define([
     'backbone',
     'models/repo',
     'text!templates/home/app.html'
-], function($, _, Backbone, repoModel, mainTemplate){
+], function($, _, Backbone, RepoModel, mainTemplate){
     var mainHomeView = Backbone.View.extend({
 
         el: $("body"),
@@ -17,7 +17,7 @@ define([
 
         render: function(){
             var data = {
-                model: new repoModel(),
+                model: new RepoModel(),
                 _: _
             };
             console.log(this.el); // show body

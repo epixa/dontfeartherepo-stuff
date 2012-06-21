@@ -2,7 +2,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    '../collections/commit',
+    'collections/commit',
     'text!templates/repo/repo.html'
 ], function($, _, Backbone, Commits, repoTemplate){
     return Backbone.View.extend({
@@ -10,7 +10,6 @@ define([
             if (_.isUndefined(commits)) {
                 throw new Error('Vendor and Repo must be defined.');
             }
-            var allCommits = commits;
             this.commits = commits;
             this.collection = new Commits();
         },
@@ -33,9 +32,6 @@ define([
             console.log(this.el); // show body
             var compiledTemplate = _.template(repoTemplate, data);
             $("body").html(compiledTemplate);
-            /*this.commits.forEach(function(obj){
-                console.log(obj.attributes);
-            });*/
         },
 
         goHome: function(event) {

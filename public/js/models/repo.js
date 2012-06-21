@@ -5,7 +5,6 @@ define([
         defaults: {
             name: null,
             vendor: null
-            //url: null
         }
     });
 });

@@ -1,21 +1,41 @@
 define([
-    'backbone',
+    'jquery',
     'underscore',
-    '../collections/commit'
-], function(Backbone, _, Commits){
+    'backbone',
+    'collections/commit',
+    'text!templates/repo/repo.html'
+], function($, _, Backbone, Commits, repoTemplate){
     return Backbone.View.extend({
         initialize: function(commits) {
             if (_.isUndefined(commits)) {
                 throw new Error('Vendor and Repo must be defined.');
             }
-            console.log('-------committer--------');
-            commits.forEach(function(obj){
-                console.log(obj.attributes);
-            });
+            this.commits = commits;
+            this.collection = new Commits();
+        },
+
+        el: $("body"),
+
+        tagName: "li",
+
+        className: "repo",
+
+        events: {
+            "click #back":"goHome"
         },
 
         render: function(){
-            $("body").html('All your base.');
+            var data = {
+                commits: this.commits,
+                _: _
+            };
+            console.log(this.el); // show body
+            var compiledTemplate = _.template(repoTemplate, data);
+            $("body").html(compiledTemplate);
+        },
+
+        goHome: function(event) {
+            Backbone.history.navigate("/", {trigger: true});
         }
     });
 });

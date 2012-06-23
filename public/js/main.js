@@ -3,7 +3,8 @@ require.config({
         jquery: 'libraries/jquery/jquery',
         underscore: 'libraries/underscore/underscore.amd',
         backbone: 'libraries/backbone/backbone.amd',
-        templates: '../templates'
+        templates: '../templates',
+        text: 'libraries/require/text'
     }
 });
 

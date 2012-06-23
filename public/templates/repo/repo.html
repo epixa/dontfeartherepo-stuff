@@ -1,0 +1,14 @@
+<section id="repo-details">
+<button id="back">Back.</button>
+<br /><br />
+
+<h2>Repo details</h2>
+<ul>
+<% if (commits) { %>
+    <% commits.forEach(function(user){
+    console.log(user.attributes) %>
+    <li><img src="<%= user.attributes.avatar %>" style="max-height: 45px;"/><%= user.attributes.login %> : <%= user.attributes.commits %></li>
+    <% }); %>
+<% } %>
+</ul>
+</section>
